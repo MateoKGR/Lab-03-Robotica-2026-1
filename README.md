@@ -214,5 +214,11 @@ flowchart TD
 ## Plano de planta y ubicación inicial
 
 ## Código desarrollado en SPEL+
+El código desarrollado está en la carpeta /codigo del repositorio, junto con los puntos utilizados para el paletizado.
 
 ## Videos demostrativos
+A continuación podemos observar los videos requeridos por la guía de laboratorio con su respectiva introducción en donde podemos observar la implementación en simulación y en el robot real. Los videos están subidos en la carpeta /videos de este repositorio pero también se puede acceder abajo dando click a la imagen y será dirigido a drive. 
+
+[![Ver video en Drive](images/videoimplentacion.png)](https://drive.google.com/file/d/1ncUSyCpmaQdeZ-cfhXGmuzgUaalBSjXP/view?usp=sharing)
+
+[![Ver video en Drive](images/simulacion.png)](https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing)
