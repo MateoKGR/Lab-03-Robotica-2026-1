@@ -30,3 +30,23 @@ Indice:
 8. [Plano de planta](#planos)
 9. [Código desarrollado](#codigo)
 10. [Videos](#videos)
+
+## Cuadro comparativo
+
+| Característica | **EPSON T3-401S** | **Motoman MH6** | **ABB IRB140** |
+|----------------|--------------------|------------------|----------------|
+| **Tipo de robot** | SCARA (4 ejes) | Articulado (6 ejes) | Articulado (6 ejes) |
+| **Grados de libertad (DOF)** | 4 | 6 | 6 |
+| **Carga máxima (Payload)** | 3 kg | 6 kg | 6 kg |
+| **Alcance máximo** | 400 mm | 1373 mm | 810 mm |
+| **Repetibilidad** | ±0.02 mm | ±0.08 mm | ±0.03 mm |
+| **Velocidad máxima** | Hasta 4500 mm/s (ejes XY) | 230°/s (articulaciones) | 225°/s (articulaciones) |
+| **Montaje** | De mesa (compacto) | En piso, pared o techo | En piso, pared o invertido |
+| **Controlador** | EPSON RC+ 7.0 | NX100 / DX100 | IRC5 Compact |
+| **Fuente de potencia** | 200–240 V CA monofásico | 200–230 V CA trifásico | 200–600 V CA trifásico |
+| **Aplicaciones típicas** | Ensamble electrónico, empaque, pick and place | Soldadura, manipulación de piezas, paletizado | Ensamble, manipulación de materiales, mantenimiento de máquinas |
+| **Peso del robot** | ~27 kg | ~130 kg | ~98 kg |
+| **Ventajas principales** | Compacto, rápido, bajo costo y fácil de integrar | Alta carga, gran alcance, estructura robusta | Preciso, compacto, ideal para espacios reducidos |
+| **Limitaciones** | Alcance corto, solo 4 ejes | Menor precisión que ABB | Mayor costo que Epson |
+| **Software asociado** | EPSON RC+ 7.0 | MotoSim EG / NX100 | RobotStudio |
+| **Comunicación con PC** | USB / Ethernet | Ethernet / RS-232 | Ethernet / USB |
