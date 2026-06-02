@@ -141,3 +141,30 @@ Es importante destacar que el software EPSON RC+ instalado en la computadora no 
 
 Dado que este proceso de cálculo e interpolación de trayectorias es idéntico tanto en el controlador virtual como en el físico, toda la lógica del patrón de caballo que perfeccionamos en la simulación se comportó de manera idéntica y predecible al implementarla en el laboratorio.
 
+## Análisis comparativo de herramientas de software
+
+En esta sección realizamos un análisis comparativo entre tres de las plataformas de software más utilizadas en la robótica industrial: **EPSON RC+ 7.0**, **RoboDK** y **RobotStudio**, evaluando sus características bajo el criterio de nuestro laboratorio.
+
+### 1. EPSON RC+ 7.0
+Es el entorno de desarrollo oficial y nativo para la programación de los robots de la marca EPSON, utilizando el lenguaje SPEL+.
+
+* **Ventajas:** Su principal fortaleza es la integración nativa y directa con el hardware (como nuestro robot T3-401S). No requiere configuraciones de comunicación externas, postprocesadores complejos ni licencias adicionales para interactuar con el controlador real por USB o Ethernet. Además, es un software bastante ligero y rápido de ejecutar.
+* **Limitaciones:** Es un ecosistema completamente cerrado exclusivo para la marca EPSON. Su entorno de simulación 3D es funcional pero básico, careciendo de herramientas avanzadas de modelado físico o renderizado realista en comparación con plataformas dedicadas a gemelos digitales.
+* **Aplicaciones:** Programación, diagnóstico en tiempo real y puesta en marcha de aplicaciones de alta velocidad basadas en robots SCARA o articulados EPSON, especialmente en industrias de ensamble electrónico, empaque y manipulación rápida (*pick and place*).
+
+### 2. RoboDK
+Es una plataforma de simulación y programación offline (OLP) de carácter universal y multimarca, ampliamente utilizada en la academia y la integración de sistemas.
+
+* **Ventajas:** Su versatilidad es sobresaliente. Cuenta con una biblioteca abierta con miles de modelos de robots de diferentes marcas (ABB, Yaskawa, KUKA, Fanuc, etc.). Permite importar geometrías en 3D de forma muy intuitiva para evaluar alcances, estudiar colisiones y estimar tiempos de ciclo de manera offline sin depender del hardware real.
+* **Limitaciones:** Al ser un software genérico, la precisión de los movimientos depende estrictamente de una calibración perfecta en el entorno real. Además, para transferir el programa al robot físico se requiere el uso de "postprocesadores" específicos que traduzcan la trayectoria al lenguaje de cada fabricante, lo que a veces puede limitar funciones muy avanzadas de los controladores nativos.
+* **Aplicaciones:** Diseño conceptual de celdas robóticas automatizadas, validación visual de trayectorias complejas (como mecanizado por robot o impresión 3D) y aprendizaje académico multimarca.
+
+### 3. RobotStudio (ABB)
+Desarrollado por ABB, es considerado uno de los entornos de simulación y programación offline más potentes, robustos y completos del mercado industrial.
+
+* **Ventajas:** Ofrece la simulación de gemelos digitales más realista de la industria gracias a que integra el controlador virtual exacto de ABB (*Virtual FlexPendant*). Cuenta con tecnología propia para predecir con total exactitud las trayectorias físicas, aceleraciones y consumos de energía utilizando el lenguaje de programación RAPID.
+* **Limitaciones:** Es un software sumamente pesado que exige computadoras con altas capacidades de procesamiento gráfico. Al igual que el entorno de EPSON, está cerrado exclusivamente al catálogo y controladores de ABB, y su curva de aprendizaje técnica es considerablemente más empinada.
+* **Aplicaciones:** Simulación avanzada y optimización offline de líneas de producción complejas, celdas de soldadura robotizada, pintura automotriz y paletizado pesado en entornos de manufactura a gran escala.
+
+### Conclusión del análisis
+Para el desarrollo de nuestro laboratorio, **EPSON RC+ 7.0** resultó ser la herramienta ideal debido a su conectividad transparente y directa con el manipulador físico T3-401S. Si tuviéramos que diseñar una celda desde cero evaluando diferentes marcas de manipuladores, **RoboDK** sería la opción más ágil por su flexibilidad multimarca; mientras que para un proyecto industrial de alta complejidad bajo el estándar de ABB, **RobotStudio** se consolidaría como el entorno definitivo por su potencia de simulación.
