@@ -18,20 +18,22 @@
 2. Mateo Ramos Cujer [mramoscu@unal.edu.co](MateoKGR)
 
 
-# Indice
-Indice:
-1. [Cuadro comparativo](#cuadro-comparativo)
-2. [Descripción de las configuraciones home](#descripcion-config)
-3. [Procedimiento detallado](#procedimiento)
-4. [Explicación completa](#explicacion)
-5. [Descripción funcionalidades EPSON RC+ 7.0](#descripcion-funciones)
-6. [Análisis comparativo EPSON RC+ 7.0, RoboDK y RobotStudio](#analisis)
-7. [Diagrama de flujo](#diagrama)
-8. [Plano de planta](#planos)
-9. [Código desarrollado](#codigo)
-10. [Videos](#videos)
+# Índice
 
-## 1. Cuadro comparativo
+1. [Cuadro comparativo de manipuladores](#1-cuadro-comparativo-de-manipuladores)
+2. [Diferencias entre los tipos de trayectorias en EPSON RC+ 7.0](#2-diferencias-entre-los-tipos-de-trayectorias-en-epson-rc-70)
+3. [Configuración de la posición Home](#3-configuracion-de-la-posicion-home)
+4. [Procedimiento de movimientos manuales del manipulador](#4-procedimiento-de-movimientos-manuales-del-manipulador)
+5. [Control y niveles de velocidad en la interfaz](#5-control-y-niveles-de-velocidad-en-la-interfaz)
+6. [Funcionalidades y comunicación de EPSON RC+ 7.0](#6-funcionalidades-y-comunicacion-de-epson-rc-70)
+7. [Análisis comparativo de software (EPSON RC+, RoboDK y RobotStudio)](#7-analisis-comparativo-de-software-epson-rc-robodk-y-robotstudio)
+8. [Diseño técnico del gripper neumático por vacío](#8-diseno-tecnico-del-gripper-neumatico-por-vacio)
+9. [Diagrama de flujo de la trayectoria (Patrón de Caballo)](#9-diagrama-de-flujo-de-la-trayectoria-patron-de-caballo)
+10. [Plano de planta del espacio de trabajo](#10-plano-de-planta-del-espacio-de-trabajo)
+11. [Código desarrollado en SPEL+](#11-codigo-desarrollado-en-spel)
+12. [Videos demostrativos (Simulación e Implementación física)](#12-videos-demostrativos-simulacion-e-implementacion-fisica)
+
+## Cuadro comparativo de manipuladores
 
 | Característica | **EPSON T3-401S** | **Motoman MH6** | **ABB IRB140** |
 |----------------|--------------------|------------------|----------------|
@@ -51,9 +53,7 @@ Indice:
 | **Software asociado** | EPSON RC+ 7.0 | MotoSim EG / NX100 | RobotStudio |
 | **Comunicación con PC** | USB / Ethernet | Ethernet / RS-232 | Ethernet / USB |
 
-## 2. Diferencias entre los tipos de trayectorias en EPSON RC+ 7.0
-
-[cite_start]Para programar los movimientos del manipulador en el software EPSON RC+ 7.0, existen distintos tipos de trayectorias dependiendo de cómo necesitemos que se mueva el robot[cite: 46]. A continuación, explico brevemente las diferencias y cómo funciona cada una:
+## Diferencias entre los tipos de trayectorias en EPSON RC+ 7.0
 
 * **Movimiento Punto a Punto (Comando `Go`):** El robot simplemente busca la forma más rápida de llegar de un punto inicial a un punto final. No le importa si el recorrido es una línea recta o no, ya que su prioridad es que todas las articulaciones lleguen al mismo tiempo al destino. Es ideal cuando el espacio está libre y solo nos importa llegar rápido.
 * **Movimiento Lineal (Comando `Move`):** A diferencia del movimiento punto a punto, aquí el robot sí se obliga a viajar en una **línea recta perfecta** en el espacio. Es muy útil cuando el camino exacto importa, como al insertar una pieza en un agujero o mover algo sin desviarse.
