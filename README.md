@@ -114,3 +114,30 @@ Afecta de forma directa la percepción de "velocidad" y control, ya que define m
 Justo encima de estas opciones, el software nos permite modificar los valores numéricos exactos en milímetros para las traslaciones (**X, Y, Z**) y en grados para la rotación de la herramienta (**U**). 
 
 ![Velocidades](images/velocidades.png)
+
+## Funcionalidades de EPSON RC+ 7.0
+
+El software **EPSON RC+ 7.0** es el entorno de desarrollo integrado (IDE) que nos permite programar, simular y controlar nuestro robot SCARA. Su función principal es servir como puente de comunicación e intermediario entre las líneas de código que escribimos en lenguaje SPEL+ y las acciones físicas del manipulador en el espacio de trabajo.
+
+### 1. Gestión de conexión (Físico vs. Virtual)
+El software nos permite conectarnos al robot mediante distintos tipos de controladores, para este lab utilizamos dos:
+* **Conexión USB (Modo Físico):** Para las pruebas reales en el laboratorio, enlazamos la computadora con el controlador integrado en la base del EPSON T3-401S a través de un cable **USB**. Por este medio, el software envía los comandos de movimiento y recibe telemetría constante sobre el estado de los motores.
+* **Conexión Virtual (Modo Simulación):** Cuando trabajamos fuera del laboratorio, el software nos permite crear un "controlador virtual" que emula matemáticamente el comportamiento exacto del robot.
+
+![Comunicación](images/comunicacion.png)
+
+### 2. Entorno de simulación en 3D
+Al activar el controlador virtual, habilitamos su simulador tridimensional. Este entorno nos permite recrear la estación de trabajo y modelar objetos. En nuestro caso, nos sirvió para verificar visualmente que los desplazamientos del brazo cubrieran toda la superficie de la cubeta de huevos sin sobrepasar los límites de las articulaciones, validando el código de forma segura y libre de colisiones antes de ejecutarlo en el hardware real.
+
+![Entorno Simulación](images/simulacion.png)
+
+### 3. Procesamiento y ejecución de movimientos
+Es importante destacar que el software EPSON RC+ instalado en la computadora no manipula directamente los motores del robot; en su lugar, delega esa tarea mediante el siguiente proceso interno:
+
+1. **Compilación del código:** Cuando ordenamos correr el programa, EPSON RC+ traduce nuestras instrucciones de alto nivel (como `Home`, `Jump Pallet` o `Off DO_09`) en comandos binarios de bajo nivel.
+2. **Envío de datos:** Estas instrucciones procesadas se transmiten en paquetes de datos a través del cable USB hacia el controlador del robot.
+3. **Cálculo cinemático:** Al recibir la orden (por ejemplo, moverse a la posición 9 del palette), el controlador calcula internamente la cinemática inversa. Esto significa que calcula exactamente cuánto debe girar cada articulación y a qué velocidad para que la herramienta llegue al destino en el tiempo correcto.
+4. **Ejecución física:** Finalmente, el controlador transforma esos cálculos en pulsos eléctricos para los servomotores de los 4 ejes y en señales digitales para activar o desactivar la salida neumática `DO_09`.
+
+Dado que este proceso de cálculo e interpolación de trayectorias es idéntico tanto en el controlador virtual como en el físico, toda la lógica del patrón de caballo que perfeccionamos en la simulación se comportó de manera idéntica y predecible al implementarla en el laboratorio.
+
