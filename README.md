@@ -208,3 +208,11 @@ flowchart TD
     CallRoutine --> Paletizado_01
     EndRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg([Fin del Programa])
+
+```
+
+## Plano de planta y ubicación inicial
+
+## Código desarrollado en SPEL+
+
+## Videos demostrativos
