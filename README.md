@@ -7,11 +7,12 @@
 
 <h3>Curso de Robótica 2026-I</h3>
 
-<h1>Informe Laboratorio # 2</h1>
+<h1>Informe Laboratorio #3</h1>
 
 <h2>Profesores: <br>Pedro Fabián Cárdenas Herrera <br> Manuel Felipe Carranza Montenegro<br></h2>
 
 </div>
+
 # Integrantes
 1. Juan Andrés Moreno Benavides [jumorenobe@unal.co](Jumorenobe)
 2. Mateo Ramos Cujer [mramoscu@unal.edu.co](MateoKGR)
@@ -25,8 +26,7 @@ Indice:
 4. [Explicación completa](#explicacion)
 5. [Descripción funcionalidades EPSON RC+ 7.0](#descripcion-funciones)
 6. [Análisis comparativo EPSON RC+ 7.0, RoboDK y RobotStudio](#analisis)
-7. [Diseño Gripper](#gripper)
-8. [Diagrama de flujo](#diagrama)
-9. [Plano de planta](#planos)
-10. [Código desarrollado](#codigo)
-11. [Videos](#videos)
+7. [Diagrama de flujo](#diagrama)
+8. [Plano de planta](#planos)
+9. [Código desarrollado](#codigo)
+10. [Videos](#videos)
