@@ -31,7 +31,7 @@ Indice:
 9. [Código desarrollado](#codigo)
 10. [Videos](#videos)
 
-## Cuadro comparativo
+## 1. Cuadro comparativo
 
 | Característica | **EPSON T3-401S** | **Motoman MH6** | **ABB IRB140** |
 |----------------|--------------------|------------------|----------------|
