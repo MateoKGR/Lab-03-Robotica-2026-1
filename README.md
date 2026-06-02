@@ -50,3 +50,12 @@ Indice:
 | **Limitaciones** | Alcance corto, solo 4 ejes | Menor precisión que ABB | Mayor costo que Epson |
 | **Software asociado** | EPSON RC+ 7.0 | MotoSim EG / NX100 | RobotStudio |
 | **Comunicación con PC** | USB / Ethernet | Ethernet / RS-232 | Ethernet / USB |
+
+## 2. Diferencias entre los tipos de trayectorias en EPSON RC+ 7.0
+
+[cite_start]Para programar los movimientos del manipulador en el software EPSON RC+ 7.0, existen distintos tipos de trayectorias dependiendo de cómo necesitemos que se mueva el robot[cite: 46]. A continuación, explico brevemente las diferencias y cómo funciona cada una:
+
+* **Movimiento Punto a Punto (Comando `Go`):** El robot simplemente busca la forma más rápida de llegar de un punto inicial a un punto final. No le importa si el recorrido es una línea recta o no, ya que su prioridad es que todas las articulaciones lleguen al mismo tiempo al destino. Es ideal cuando el espacio está libre y solo nos importa llegar rápido.
+* **Movimiento Lineal (Comando `Move`):** A diferencia del movimiento punto a punto, aquí el robot sí se obliga a viajar en una **línea recta perfecta** en el espacio. Es muy útil cuando el camino exacto importa, como al insertar una pieza en un agujero o mover algo sin desviarse.
+* **Movimiento de Salto (Comando `Jump`):** Hace un movimiento en 3D muy característico: sube, se desplaza horizontalmente y luego baja. Está pensado específicamente para tareas de "Pick and Place" (como mover los huevos en nuestra cubeta), ya que es muy eficiente y evita chocar con los objetos que están en la superficie de trabajo.
+* **Movimiento Circular (Comando `Arc`):** Permite que el robot describa una trayectoria curva. Le damos unos puntos intermedios como referencia y el robot traza un arco suave. Es práctico para rodear obstáculos o seguir contornos curvos.
