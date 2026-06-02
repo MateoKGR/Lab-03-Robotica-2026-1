@@ -73,3 +73,24 @@ Por otra parte, la configuración de Home juega un rol crucial en la seguridad d
 
 Finalmente, esta postura garantiza la repetibilidad del código en cada ciclo de trabajo. Como se observa en nuestro programa, la instrucción `Home` se ejecuta al iniciar la función `main` para limpiar cualquier postura previa del manipulador, y se vuelve a llamar al terminar la rutina `Paletizado_01`. Esto asegura que toda la secuencia basada en el patrón de caballo de ajedrez se ejecute bajo las mismas condiciones exactas en cada simulación o prueba física.
 
+## Procedimiento de movimientos manuales
+
+Para mover el robot manualmente (hacer *jogging*) desde EPSON RC+ 7.0, utilizamos la ventana de **Robot Manager** o en español **Administrador de robot**, que es el centro de control donde habilitamos los motores, liberamos los frenos de las articulaciones y seleccionamos los modos de operación. El proceso es muy intuitivo, pero es obligatorio seguir un orden estricto para que el controlador reciba los comandos correctamente.
+
+El primer paso consiste en abrir el **Administrador de robot** y presionar el botón **Reset**. Esto limpia cualquier alarma activa, falla de comunicación o estado previo que bloquee al manipulador. Con el sistema limpio, activamos los motores haciendo clic en **Motor ON**; en ese instante escucharemos el enganche físico de los frenos y el robot quedará listo para ser operado de forma manual.
+
+![Robot manager](images/robot_manager.png)
+
+Una vez habilitado, nos dirigimos a la pestaña **Mover y enseñar** o **Jog & Teach**. En esta sección configuramos el tipo de movimiento cambiando el parámetro **Modo**:
+
+* **Modo Articular (Mode: Joint):** Al seleccionar esta opción, las teclas de control cambian a **J1, J2, J3 y J4**. Cada pulsación mueve de forma directa e independiente una sola articulación del brazo SCARA. Es el modo ideal para retirar al robot de posturas incómodas o moverlo libremente sin importar la trayectoria.
+* **Modo Cartesiano (Mode: World o Mode: Tool):** Aquí el robot interpreta el espacio de forma matemática. Si seleccionamos *World*, nos moveremos respecto a la base fija del robot; si elegimos *Tool*, lo haremos respecto a la orientación de nuestra herramienta. 
+
+![Jog & Teach](images/jogyteach.png)
+
+Para ejecutar los desplazamientos en el modo cartesiano, el software nos presenta un panel de botones específicos. Las traslaciones lineales en línea recta se realizan presionando las flechas de los ejes **X, Y y Z** (en sus direcciones positivas `+` o negativas `-`). 
+
+En cuanto a las rotaciones, al tratarse de un robot SCARA de 4 ejes, el EPSON T3-401S solo cuenta con la capacidad de rotar sobre su propio eje vertical a través de la coordenada **U** (los botones **V** y **W** permanecen inhabilitados ya que son exclusivos para manipuladores de 6 grados de libertad). Al presionar `+U` o `-U`, logramos que el gripper neumático gire sobre su propio centro, lo cual fue clave para orientar correctamente la succión al interactuar con la cubeta.
+
+En esta misma ventana controlamos la velocidad del jogging seleccionando entre los niveles **Low, Medium o High**, así como la distancia de avance por cada pulsación en el modo síncrono (*Jog Dist*). Esta combinación de herramientas es la que nos permite aproximar el robot con total precisión a la superficie, registrar los puntos exactos de la cubeta de huevos y verificar que no existan riesgos de colisión antes de correr el código definitivo.
+
